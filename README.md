@@ -1,36 +1,53 @@
-# Getting Started with Create React App
+# Welcome to Remix!
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- [Remix Docs](https://remix.run/docs)
 
-## Available Scripts
+## Development
 
-In the project directory, you can run:
+From your terminal:
 
-### `npm start`
+```sh
+npm run dev
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This starts your app in development mode, rebuilding assets on file changes.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Deployment
 
-### `npm test`
+First, build your app for production:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```sh
+npm run build
+```
 
-### `npm run build`
+Then run the app in production mode:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```sh
+npm start
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Now you'll need to pick a host to deploy it to.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### DIY
 
-## Learn More
+If you're familiar with deploying node applications, the built-in Remix app server is production-ready.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Make sure to deploy the output of `remix build`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- `build/`
+- `public/build/`
+
+### Using a Template
+
+When you ran `npx create-remix@latest` there were a few choices for hosting. You can run that again to create a new project, then copy over your `app/` folder to the new project that's pre-configured for your target server.
+
+```sh
+cd ..
+# create a new project, and pick a pre-configured host
+npx create-remix@latest
+cd my-new-remix-app
+# remove the new project's app (not the old one!)
+rm -rf app
+# copy your app over
+cp -R ../my-old-remix-app/app app
+```
